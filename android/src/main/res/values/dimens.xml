@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="shutter_size">64dp</dimen>
+    <dimen name="shutter_border_width">0dp</dimen>
+
+</resources>
