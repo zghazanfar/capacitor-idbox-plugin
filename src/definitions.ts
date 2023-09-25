@@ -1,3 +1,4 @@
+import { PluginListenerHandle } from "@capacitor/core";
 
 export interface IdboxPluginPlugin {
   initWithHawkCredentials(options:{options:String}): Promise<{ options:String }>;
@@ -23,5 +24,7 @@ export interface IdboxPluginPlugin {
   scan2SIdentity(options:{options:String}): Promise<{ options:any }>;
   scanAdditionalDocuments(options:{options:String}): Promise<{ options:any }>;
   startVideoSession(options:{options:String}): Promise<{ options:any }>;
+  addListener(eventName: 'videoCallQueue', listenerFunc: (info: any) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
+
 }
 

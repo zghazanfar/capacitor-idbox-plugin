@@ -298,6 +298,29 @@
           "String"
         ],
         "slug": "startvideosession"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'videoCallQueue', listenerFunc: (info: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'videoCallQueue'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(info: any) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenervideocallqueue"
       }
     ],
     "properties": []
@@ -921,6 +944,22 @@
           "docs": "",
           "complexTypes": [],
           "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
         }
       ]
     }

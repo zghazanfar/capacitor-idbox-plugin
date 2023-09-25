@@ -32,6 +32,7 @@ npx cap sync
 * [`scan2SIdentity(...)`](#scan2sidentity)
 * [`scanAdditionalDocuments(...)`](#scanadditionaldocuments)
 * [`startVideoSession(...)`](#startvideosession)
+* [`addListener('videoCallQueue', ...)`](#addlistenervideocallqueue)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -300,6 +301,22 @@ startVideoSession(options: { options: String; }) => Promise<{ options: any; }>
 --------------------
 
 
+### addListener('videoCallQueue', ...)
+
+```typescript
+addListener(eventName: 'videoCallQueue', listenerFunc: (info: any) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+```
+
+| Param              | Type                                |
+| ------------------ | ----------------------------------- |
+| **`eventName`**    | <code>'videoCallQueue'</code>       |
+| **`listenerFunc`** | <code>(info: any) =&gt; void</code> |
+
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+
+--------------------
+
+
 ### Interfaces
 
 
@@ -367,5 +384,12 @@ Allows manipulation and formatting of text strings and determination and locatio
 | ----------- | ------------------- |
 | **`index`** | <code>number</code> |
 | **`input`** | <code>string</code> |
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>
