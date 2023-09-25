@@ -50,13 +50,6 @@ export interface IdboxPluginPlugin {
             Data: string;
         };
     }>;
-    contractFormAthex(options: {
-        options: String;
-    }): Promise<{
-        Result: {
-            Data: string;
-        };
-    }>;
     startListeningSignalR(options: {
         options: String;
     }): Promise<{
@@ -86,6 +79,13 @@ export interface IdboxPluginPlugin {
         options: String;
     }): Promise<{
         options: any;
+    }>;
+    contractFormAthex(options: {
+        options: String;
+    }): Promise<{
+        Result: {
+            Data: string;
+        };
     }>;
     addListener(eventName: 'videoCallQueue', listenerFunc: (info: any) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
 }

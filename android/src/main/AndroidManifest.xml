@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <application>
     <activity android:exported="false" android:name="com.intellisolutions.activities.FragmentHandlerActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     <activity android:exported="false" android:name="com.intellisolutions.activities.VideoSessionActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+  </application>
 </manifest>

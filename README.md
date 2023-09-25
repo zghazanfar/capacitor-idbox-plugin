@@ -25,13 +25,13 @@ npx cap sync
 * [`createOtp()`](#createotp)
 * [`resendOtp()`](#resendotp)
 * [`contractForm(...)`](#contractform)
-* [`contractFormAthex(...)`](#contractformathex)
 * [`startListeningSignalR(...)`](#startlisteningsignalr)
 * [`startListeningVideoSignalR(...)`](#startlisteningvideosignalr)
 * [`scan1SIdentity(...)`](#scan1sidentity)
 * [`scan2SIdentity(...)`](#scan2sidentity)
 * [`scanAdditionalDocuments(...)`](#scanadditionaldocuments)
 * [`startVideoSession(...)`](#startvideosession)
+* [`contractFormAthex(...)`](#contractformathex)
 * [`addListener('videoCallQueue', ...)`](#addlistenervideocallqueue)
 * [Interfaces](#interfaces)
 
@@ -196,21 +196,6 @@ contractForm(options: { options: String; }) => Promise<{ Result: { Data: string;
 --------------------
 
 
-### contractFormAthex(...)
-
-```typescript
-contractFormAthex(options: { options: String; }) => Promise<{ Result: { Data: string; }; }>
-```
-
-| Param         | Type                                                    |
-| ------------- | ------------------------------------------------------- |
-| **`options`** | <code>{ options: <a href="#string">String</a>; }</code> |
-
-**Returns:** <code>Promise&lt;{ Result: { Data: string; }; }&gt;</code>
-
---------------------
-
-
 ### startListeningSignalR(...)
 
 ```typescript
@@ -297,6 +282,21 @@ startVideoSession(options: { options: String; }) => Promise<{ options: any; }>
 | **`options`** | <code>{ options: <a href="#string">String</a>; }</code> |
 
 **Returns:** <code>Promise&lt;{ options: any; }&gt;</code>
+
+--------------------
+
+
+### contractFormAthex(...)
+
+```typescript
+contractFormAthex(options: { options: String; }) => Promise<{ Result: { Data: string; }; }>
+```
+
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code>{ options: <a href="#string">String</a>; }</code> |
+
+**Returns:** <code>Promise&lt;{ Result: { Data: string; }; }&gt;</code>
 
 --------------------
 

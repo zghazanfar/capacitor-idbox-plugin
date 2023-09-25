@@ -15,15 +15,15 @@ export interface IdboxPluginPlugin {
   contractForm(options:{options:String}): Promise<{Result:{
     Data:string
   } }>;
-  contractFormAthex(options:{options:String}): Promise<{Result:{
-    Data:string
-  } }>;
   startListeningSignalR(options:{options:String}): Promise<{ options:any }>;
   startListeningVideoSignalR(options:{options:String}): Promise<{ options:any }>;
   scan1SIdentity(options:{options:String}): Promise<{ options:any }>;
   scan2SIdentity(options:{options:String}): Promise<{ options:any }>;
   scanAdditionalDocuments(options:{options:String}): Promise<{ options:any }>;
   startVideoSession(options:{options:String}): Promise<{ options:any }>;
+  contractFormAthex(options:{options:String}): Promise<{Result:{
+    Data:string
+  } }>;
   addListener(eventName: 'videoCallQueue', listenerFunc: (info: any) => void): Promise<PluginListenerHandle> & PluginListenerHandle;
 
 }

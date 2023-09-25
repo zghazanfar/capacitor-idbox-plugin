@@ -174,24 +174,6 @@
         "slug": "contractform"
       },
       {
-        "name": "contractFormAthex",
-        "signature": "(options: { options: String; }) => Promise<{ Result: { Data: string; }; }>",
-        "parameters": [
-          {
-            "name": "options",
-            "docs": "",
-            "type": "{ options: String; }"
-          }
-        ],
-        "returns": "Promise<{ Result: { Data: string; }; }>",
-        "tags": [],
-        "docs": "",
-        "complexTypes": [
-          "String"
-        ],
-        "slug": "contractformathex"
-      },
-      {
         "name": "startListeningSignalR",
         "signature": "(options: { options: String; }) => Promise<{ options: any; }>",
         "parameters": [
@@ -298,6 +280,24 @@
           "String"
         ],
         "slug": "startvideosession"
+      },
+      {
+        "name": "contractFormAthex",
+        "signature": "(options: { options: String; }) => Promise<{ Result: { Data: string; }; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ options: String; }"
+          }
+        ],
+        "returns": "Promise<{ Result: { Data: string; }; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "String"
+        ],
+        "slug": "contractformathex"
       },
       {
         "name": "addListener",
