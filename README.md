@@ -16,6 +16,7 @@ npx cap sync
 * [`initWithHawkCredentials(...)`](#initwithhawkcredentials)
 * [`registerRequest(...)`](#registerrequest)
 * [`getNextStep()`](#getnextstep)
+* [`getRequestId()`](#getrequestid)
 * [`pleaseWait()`](#pleasewait)
 * [`scanSelfie(...)`](#scanselfie)
 * [`videoCall(...)`](#videocall)
@@ -75,6 +76,17 @@ getNextStep() => Promise<{ options: any; }>
 ```
 
 **Returns:** <code>Promise&lt;{ options: any; }&gt;</code>
+
+--------------------
+
+
+### getRequestId()
+
+```typescript
+getRequestId() => Promise<{ response: any; }>
+```
+
+**Returns:** <code>Promise&lt;{ response: any; }&gt;</code>
 
 --------------------
 

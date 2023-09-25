@@ -8,7 +8,9 @@
   "unpkg": "dist/plugin.js",
   "files": [
     "android/src/main/",
+    "android/OBSDK-idbox",
     "android/build.gradle",
+    "android/settings.gradle",
     "dist/",
     "ios/Plugin/",
     "Idboxplugin.podspec"

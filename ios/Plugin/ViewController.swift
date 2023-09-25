@@ -183,7 +183,9 @@ class ViewController: UIViewController, OnBoardHttpDelegate, OnBoardCameraDelega
         }
         if(options["previewHeaderTextRect"] != nil)
         {
-            cameraDoubleSideIdController.previewHeaderTextRect = options["previewHeaderTextRect"] as! CGRect
+            var headerTextRect = options["previewHeaderTextRect"] as! Dictionary<String, Any>
+            var cgrect = CGRect(x:headerTextRect["xCordinate"] as! Int,y:headerTextRect["yCordinate"] as! Int,width:headerTextRect["width"] as! Int,height:headerTextRect["height"] as! Int)
+            cameraDoubleSideIdController.previewHeaderTextRect = cgrect
         }
         if(options["previewHeaderTextAlignment"] != nil)
         {
@@ -347,7 +349,9 @@ class ViewController: UIViewController, OnBoardHttpDelegate, OnBoardCameraDelega
         }
         if(options["previewHeaderTextRect"] != nil)
         {
-            cameraIdController.previewHeaderTextRect = options["previewHeaderTextRect"] as! CGRect
+            var headerTextRect = options["previewHeaderTextRect"] as! Dictionary<String, Any>
+            var cgrect = CGRect(x:headerTextRect["xCordinate"] as! Int,y:headerTextRect["yCordinate"] as! Int,width:headerTextRect["width"] as! Int,height:headerTextRect["height"] as! Int)
+            cameraIdController.previewHeaderTextRect = cgrect
         }
         if(options["previewHeaderTextAlignment"] != nil)
         {
@@ -505,8 +509,9 @@ class ViewController: UIViewController, OnBoardHttpDelegate, OnBoardCameraDelega
             cameraDocController.previewSliderColor = options["previewSliderColor"] as! String
         }
         if(options["previewHeaderTextRect"] != nil)
-        {
-            cameraDocController.previewHeaderTextRect = options["previewHeaderTextRect"] as! CGRect
+        { var headerTextRect = options["previewHeaderTextRect"] as! Dictionary<String, Any>
+            var cgrect = CGRect(x:headerTextRect["xCordinate"] as! Int,y:headerTextRect["yCordinate"] as! Int,width:headerTextRect["width"] as! Int,height:headerTextRect["height"] as! Int)
+            cameraDocController.previewHeaderTextRect = cgrect
         }
         if(options["previewHeaderTextAlignment"] != nil)
         {
@@ -678,7 +683,9 @@ class ViewController: UIViewController, OnBoardHttpDelegate, OnBoardCameraDelega
             }
             if(options["previewHeaderTextRect"] != nil)
             {
-                cameracontroller.previewHeaderTextRect = options["previewHeaderTextRect"] as! CGRect
+                var headerTextRect = options["previewHeaderTextRect"] as! Dictionary<String, Any>
+                var cgrect = CGRect(x:headerTextRect["xCordinate"] as! Int,y:headerTextRect["yCordinate"] as! Int,width:headerTextRect["width"] as! Int,height:headerTextRect["height"] as! Int)
+                cameracontroller.previewHeaderTextRect = cgrect
             }
             if(options["previewHeaderTextAlignment"] != nil)
             {

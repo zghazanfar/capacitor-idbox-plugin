@@ -9,6 +9,7 @@ CAP_PLUGIN_METHOD(startListeningSignalR, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(startListeningVideoSignalR, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(registerRequest, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(getNextStep, CAPPluginReturnPromise);
+CAP_PLUGIN_METHOD(getRequestId, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(pleaseWait, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(videoCallQueue, CAPPluginReturnPromise);
 CAP_PLUGIN_METHOD(videoCall, CAPPluginReturnPromise);

@@ -14,6 +14,9 @@ export declare class IdboxPluginWeb extends WebPlugin implements IdboxPluginPlug
     getNextStep(): Promise<{
         options: any;
     }>;
+    getRequestId(): Promise<{
+        response: any;
+    }>;
     pleaseWait(): Promise<{
         options: any;
     }>;

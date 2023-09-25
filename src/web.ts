@@ -15,6 +15,10 @@ export class IdboxPluginWeb extends WebPlugin implements IdboxPluginPlugin {
     //console.log('getNextStep', options);
     return {options:""}
   }
+  async getRequestId(): Promise<{response:any}> {
+    //console.log('getNextStep', options);
+    return {response:""}
+  }
   async pleaseWait(): Promise<{options:any}> {
     return {options:""}
   }

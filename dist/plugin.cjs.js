@@ -75,6 +75,10 @@ class IdboxPluginWeb extends core.WebPlugin {
         //console.log('getNextStep', options);
         return { options: "" };
     }
+    async getRequestId() {
+        //console.log('getNextStep', options);
+        return { response: "" };
+    }
     async pleaseWait() {
         return { options: "" };
     }

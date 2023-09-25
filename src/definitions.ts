@@ -3,6 +3,7 @@ export interface IdboxPluginPlugin {
   initWithHawkCredentials(options:{options:String}): Promise<{ options:String }>;
   registerRequest(options:{options:String}): Promise<{ options:String }>;
   getNextStep(): Promise<{ options:any }>;
+  getRequestId(): Promise<{ response:any }>;
   pleaseWait(): Promise<{ options:any }>;
   scanSelfie(options:{options:String}): Promise<{ options:any }>;
   videoCall(options:{options:String}): Promise<{ options:any }>;
