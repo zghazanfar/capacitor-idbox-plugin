@@ -50,7 +50,7 @@ public class IdboxPluginPlugin extends Plugin {
     public static String requestId;
     public Activity currentActivity;
     private final  int REQUEST_SCAN_MEDIA = 1, REQUEST_VIDEO_SESSION= 2;
-    private JSONObject VideoSession = new JSONObject();
+    private JSONObject VideoSessionCred = new JSONObject();
     private String action;
     private File file;
     private PluginCall call;
@@ -177,8 +177,8 @@ public class IdboxPluginPlugin extends Plugin {
                 result.put("resultCode",resultCode);
                 result.put("resultMessage",resultMessage);
                 if(taskId == "idBox.api.VideoCall" && success) {
-                    JSONObject temp = new JSONObject(resultMessage);
-                    VideoSession = temp.getJSONObject("Result");
+                    JSONObject sessionCred = new JSONObject(resultMessage);
+                    VideoSessionCred = sessionCred.getJSONObject("Result");
                     Log.d("resultt", resultMessage.toString());
                 }
                 if (call.getMethodName().equals("contractForm") || call.getMethodName().equals("contractFormAthex")){
@@ -200,18 +200,6 @@ public class IdboxPluginPlugin extends Plugin {
                   call.setKeepAlive(true);
                   call.resolve(new JSObject(resultMessage));
               }
-
-//                else if (call.getMethodName().equals("contractForm") || call.getMethodName().equals("contractFormAthex"))
-//                 {
-//                 JSONObject temp = new JSONObject(resultMessage);
-//                 JSONObject resultContractFile = temp.getJSONObject("Result");
-//                 Log.d("signdocument", resultContractFile.getString("Data"));
-//                   if(resultContractFile.getString("Data")!=null){
-//                       call.resolve(new JSObject(resultContractFile.getString("Data")));
-//                  }else{
-//                    call.resolve(new JSObject(resultMessage));
-//                 }
-//               }
                 else{
                     call.resolve(new JSObject(resultMessage));
                 }
@@ -679,6 +667,34 @@ public void scan2SIdentity(PluginCall call ){
             call.reject(e.getMessage());
         }
     }
+  @ActivityCallback
+  public void onVideoActivityResult(PluginCall call, ActivityResult result) {
+    try {
+      Intent intent = result.getData();
+      Log.d("VideoactivityResult", result.toString());
+
+//          if(requestCode == REQUEST_SCAN_MEDIA){
+      JSONObject map = new JSONObject();
+      map.put("String.valueOf(R.string.MAP_API_RESPONSE_TASK)", intent.getStringExtra(String.valueOf(R.string.MAP_API_RESPONSE_TASK)));
+      map.put(String.valueOf(R.string.RESULT_MESSAGE), intent.getStringExtra(String.valueOf(R.string.RESULT_MESSAGE)));
+      map.put(String.valueOf(R.string.API_RESULT_CODE), intent.getIntExtra(String.valueOf(R.string.API_RESULT_CODE), 0));
+      map.put(String.valueOf(R.string.RESULT_CODE), intent.getIntExtra(String.valueOf(R.string.RESULT_CODE), 0));
+      Log.d("activityResult", intent.getStringExtra("response"));
+      call.resolve(new JSObject(intent.getStringExtra("response")));
+//            }
+//            else if(requestCode == REQUEST_VIDEO_SESSION){
+////          Log.e("Video Intent", "");
+//                JSONObject map = new JSONObject();
+//                map.put(String.valueOf(R.string.RESULT_ID), intent.getIntExtra(String.valueOf(R.string.RESULT_ID), 0));
+//                map.put(String.valueOf(R.string.RESULT_CODE), intent.getIntExtra(String.valueOf(R.string.RESULT_CODE), 0));
+//                map.put(String.valueOf(R.string.RESULT_MESSAGE), intent.getStringExtra(String.valueOf(R.string.RESULT_MESSAGE)));
+//              call.resolve(new JSObject(intent.getStringExtra("response")));
+//            }
+    } catch (Exception e){
+      e.printStackTrace();
+      call.reject(e.getMessage());
+    }
+  }
   @PluginMethod
   public void startListeningVideoSignalR(PluginCall call){
         try {
@@ -960,15 +976,15 @@ public void scan2SIdentity(PluginCall call ){
             currentActivity = getActivity();
             Intent intent = new Intent(currentActivity, VideoSessionActivity.class);
 
-            options.put("tokBoxSessionId",VideoSession.getString("TokBoxSessionId"));
-            options.put("tokBoxApiKey",VideoSession.getString("TokBoxApiKey"));
-            options.put("tokBoxToken",VideoSession.getString("TokBoxToken"));
+            options.put("tokBoxSessionId",VideoSessionCred.getString("TokBoxSessionId"));
+            options.put("tokBoxApiKey",VideoSessionCred.getString("TokBoxApiKey"));
+            options.put("tokBoxToken",VideoSessionCred.getString("TokBoxToken"));
 //            options.put("tokBoxSessionId","TokBoxSessionId");
 //            options.put("tokBoxApiKey","TokBoxApiKey");
 //            options.put("tokBoxToken","TokBoxToken");
 //            Log.e("Video Json OBJ", jsonObject.toString());
             intent.putExtra("VideoOptionsJson", options.toString());
-            currentActivity.startActivityForResult(intent, REQUEST_VIDEO_SESSION);
+            this.startActivityForResult(this.call,intent, "onVideoActivityResult");
 
         } catch (Exception e){
             call.reject(e.getMessage());
