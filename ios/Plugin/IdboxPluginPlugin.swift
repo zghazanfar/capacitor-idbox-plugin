@@ -492,7 +492,8 @@ public class IdboxPluginPlugin: CAPPlugin,OnBoardHttpDelegate,OnBoardCameraDeleg
         
     public func onSignalrMessageWithOrder(order: Int, andWaitingTime: Int) {
             //        customAlert(title: "Video Call Queue order: \(order)", message: "waiting time: \(andWaitingTime)")
-            self.promiseRes.returnPromise(message:"Video Call Queue order: \(order) waiting time: \(andWaitingTime)")
+        notifyListeners("videoCallQueue", data: "Video Call Queue order: \(order) waiting time: \(andWaitingTime)")
+            //self.promiseRes.returnPromise(message:"Video Call Queue order: \(order) waiting time: \(andWaitingTime)")
             
         }
         
