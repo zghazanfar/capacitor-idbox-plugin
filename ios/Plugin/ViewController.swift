@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import IdBoxFramwork
+import IdboxSwiftFramwork
 import OpenTok
 
 class ViewController: UIViewController, OnBoardHttpDelegate, OnBoardCameraDelegate, DocCameraDelegate,IdCameraDelegate,VideoDelegate,DoubleIdCameraDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate
@@ -976,15 +976,15 @@ extension ViewController {
         print("bandwidth_video \(bandwidth_video)  packetLost \(packetLost)")
     }
     
-    func networkTestDidCompleteWithResult(result: IdBoxFramwork.OTNetworkTestResult, error: OTError) {
+    func networkTestDidCompleteWithResult(result: IdboxSwiftFramwork.OTNetworkTestResult, error: OTError) {
         var resultMessage:String = ""
         
-        if(result == IdBoxFramwork.OTNetworkTestResult.OTNetworkTestResultVideoAndVoice)
+        if(result == IdboxSwiftFramwork.OTNetworkTestResult.OTNetworkTestResultVideoAndVoice)
         {
             resultMessage = "Result : OTNetworkTestResultVideoAndVoice";
             
         }
-        else if(result == IdBoxFramwork.OTNetworkTestResult.OTNetworkTestResultVoiceOnly)
+        else if(result == IdboxSwiftFramwork.OTNetworkTestResult.OTNetworkTestResultVoiceOnly)
         {
             resultMessage = String(format: "Result : OTNetworkTestResultVoiceOnly,Error %@", arguments: [error.localizedDescription])
         }

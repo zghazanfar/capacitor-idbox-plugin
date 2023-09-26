@@ -1,6 +1,6 @@
 import Foundation
 import Capacitor
-import IdBoxFramwork
+import IdboxSwiftFramwork
 import SwiftyJSON
 import OpenTok
 
@@ -492,7 +492,7 @@ public class IdboxPluginPlugin: CAPPlugin,OnBoardHttpDelegate,OnBoardCameraDeleg
         
     public func onSignalrMessageWithOrder(order: Int, andWaitingTime: Int) {
             //        customAlert(title: "Video Call Queue order: \(order)", message: "waiting time: \(andWaitingTime)")
-        notifyListeners("videoCallQueue", data: "Video Call Queue order: \(order) waiting time: \(andWaitingTime)")
+        notifyListeners("videoCallQueue", data: ["Video Call Queue order: \(order) waiting time: \(andWaitingTime)":"signal"])
             //self.promiseRes.returnPromise(message:"Video Call Queue order: \(order) waiting time: \(andWaitingTime)")
             
         }
@@ -607,15 +607,15 @@ public class IdboxPluginPlugin: CAPPlugin,OnBoardHttpDelegate,OnBoardCameraDeleg
             print("bandwidth_video \(bandwidth_video)  packetLost \(packetLost)")
         }
         
-     public func networkTestDidCompleteWithResult(result: IdBoxFramwork.OTNetworkTestResult, error: OTError) {
+     public func networkTestDidCompleteWithResult(result: IdboxSwiftFramwork.OTNetworkTestResult, error: OTError) {
             var resultMessage:String = ""
             
-            if(result == IdBoxFramwork.OTNetworkTestResult.OTNetworkTestResultVideoAndVoice)
+            if(result == IdboxSwiftFramwork.OTNetworkTestResult.OTNetworkTestResultVideoAndVoice)
             {
                 resultMessage = "Result : OTNetworkTestResultVideoAndVoice";
                 
             }
-            else if(result == IdBoxFramwork.OTNetworkTestResult.OTNetworkTestResultVoiceOnly)
+            else if(result == IdboxSwiftFramwork.OTNetworkTestResult.OTNetworkTestResultVoiceOnly)
             {
                 resultMessage = String(format: "Result : OTNetworkTestResultVoiceOnly,Error %@", arguments: [error.localizedDescription])
             }
